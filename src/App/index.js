@@ -12,8 +12,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <List onLoadFile={setLoadedFile} />
         <Player fileName={loadedFile} />
+        <List onLoadFile={setLoadedFile} />
       </Container>
     </ThemeProvider>
   );

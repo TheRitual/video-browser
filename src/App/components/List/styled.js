@@ -10,6 +10,12 @@ export const Menu = styled.aside`
         background-color: ${theme.dark};
         color: ${theme.light};
     `};
+    @media(orientation: portrait) {
+        flex-direction: column;
+        height: auto;
+        min-height: 50vh;
+        width: 100%;
+    }
 `;
 
 export const Title = styled.h2`
@@ -25,21 +31,21 @@ export const Title = styled.h2`
 `;
 
 export const VideoButton = styled.button`
-    ${({ theme }) => css` 
-        color: ${theme.dark};
+    ${({ theme, active }) => css` 
+        color: ${active ? theme.light : theme.dark};
         border: 0;
-        background-color: ${theme.secondary};
+        background-color: ${active ? theme.primary : theme.secondary};
         font-size: 20px;
         padding: 10px;
         transition: 0.2s;
-        text-shadow: 0 0 2px ${colorAlpha(theme.dark, 0.7)};
+        text-shadow: 0 0 2px ${colorAlpha(active ? theme.light : theme.dark, 0.7)};
         margin-bottom: 10px;
         cursor: pointer;
         border-radius: 10px;
         &:hover {
             transform: scale(1.05);
             filter: brightness(1.5);
-            box-shadow: 0 0 10px ${colorAlpha(theme.secondary, 0.7)};
+            box-shadow: 0 0 10px ${colorAlpha(active ? theme.primary : theme.secondary, 0.7)};
         }
     `};
 `;
@@ -50,5 +56,13 @@ export const ButtonContainer = styled.section`
     flex-direction: column;
     padding: 20px;
     overflow-y: scroll;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    scrollbar-color: dark; 
+    @media(orientation: portrait) {
+        flex-direction: column;
+        height: auto;
+        min-height: 50vh;
+        width: 100%;
+        overflow-y: auto;
+    }
 `;

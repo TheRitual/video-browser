@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: inherit;
     }
 
+    :root {
+        color-scheme: dark;
+    }
+
     body {
         font-family: 'Lobster', cursive;
         margin: 0;

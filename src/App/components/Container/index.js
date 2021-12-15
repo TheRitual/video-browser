@@ -7,6 +7,10 @@ const Container = styled.main`
     height: 100vh;
     margin: 0;
     padding: 0;
+    @media(orientation: portrait) {
+        flex-direction: column;
+        height: auto;
+    }
 `;
 
 export default Container;
