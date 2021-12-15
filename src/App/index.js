@@ -1,14 +1,19 @@
+import { ThemeProvider } from "styled-components";
 import Container from "./components/Container";
-import useMoviesList from "./utils/useMoviesList";
+import List from "./components/List";
+import Player from "./components/Player";
+import theme from './theme';
+
 
 const App = () => {
-  
-  const moviesList = useMoviesList();
 
   return (
-    <Container>
-      MP4 Player
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+      <List />
+      <Player />
+      </Container>
+    </ThemeProvider>
   );
 }
 
