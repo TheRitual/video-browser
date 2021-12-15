@@ -33,6 +33,7 @@ export const VideoButton = styled.button`
         padding: 10px;
         transition: 0.2s;
         text-shadow: 0 0 2px ${colorAlpha(theme.dark, 0.7)};
+        margin-bottom: 10px;
         cursor: pointer;
         border-radius: 10px;
         &:hover {

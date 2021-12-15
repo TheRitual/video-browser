@@ -4,7 +4,7 @@ const useMoviesList = () => {
     const [moviesList, setMoviesList] = useState([]);
 
     useEffect(() => {
-        fetch('http://olafek.com/player/file_list.php')
+        fetch('./file_list.php')
             .then(response => response.json())
             .then(data => setMoviesList(data));
     }, []);
