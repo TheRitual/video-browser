@@ -1,3 +1,4 @@
+import Container from "./components/Container";
 import useMoviesList from "./utils/useMoviesList";
 
 const App = () => {
@@ -5,9 +6,9 @@ const App = () => {
   const moviesList = useMoviesList();
 
   return (
-    <div>
+    <Container>
       MP4 Player
-    </div>
+    </Container>
   );
 }
 
