@@ -28,6 +28,9 @@ export const Title = styled.h2`
         text-shadow: 0 0 20px ${colorAlpha(theme.secondary, 0.7)};
     `};
     cursor: default;
+    @media(orientation: portrait) {
+            font-size: 4vh;
+        }
 `;
 
 export const VideoButton = styled.button`
@@ -46,6 +49,10 @@ export const VideoButton = styled.button`
             transform: scale(1.05);
             filter: brightness(1.5);
             box-shadow: 0 0 10px ${colorAlpha(active ? theme.primary : theme.secondary, 0.7)};
+        }
+        @media(orientation: portrait) {
+            font-size: 3vh;
+            padding: 2vh;
         }
     `};
 `;

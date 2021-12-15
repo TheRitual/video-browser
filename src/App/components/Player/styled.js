@@ -10,7 +10,7 @@ export const PlayerContainer = styled.section`
         background-size: cover;
     `};
     @media(orientation: portrait) {
-        height: 50vh;
+        height: calc(100vh / 16 * 9);
         flex: auto;
     }
 `;
