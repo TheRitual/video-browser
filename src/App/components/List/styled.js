@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import colorAlpha from "color-alpha";
+import { ReactComponent as FolderIcon } from './folder.svg';
 
 export const Menu = styled.aside`
     display: flex;
@@ -43,8 +44,10 @@ export const VideoButton = styled.button`
         transition: 0.2s;
         text-shadow: 0 0 2px ${colorAlpha(active ? theme.light : theme.dark, 0.7)};
         margin-bottom: 10px;
+        margin-top: 10px;
         cursor: pointer;
         border-radius: 10px;
+        width: 100%;
         &:hover {
             transform: scale(1.05);
             filter: brightness(1.5);
@@ -65,6 +68,7 @@ export const ButtonContainer = styled.section`
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-color: dark; 
+    align-items: center;
     @media(orientation: portrait) {
         flex-direction: column;
         height: auto;
@@ -73,3 +77,13 @@ export const ButtonContainer = styled.section`
         overflow-y: auto;
     }
 `;
+
+export const DirIcon = styled(FolderIcon)`
+    width: 30%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+    }
+`
