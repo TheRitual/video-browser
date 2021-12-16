@@ -6,6 +6,7 @@ const theme = {
     accent: SWATCHES.gold,
     dark: SWATCHES.cinder,
     light: SWATCHES.ecruWhite,
+    error: SWATCHES.scarlet,
 }
 
 export default theme;

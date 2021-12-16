@@ -60,7 +60,7 @@ const App = () => {
         <Player fileName={loadedFile} />
         {showList && <List moviesList={moviesList} onLoadFile={setLoadedFile} onChangeDir={() => changeDirHandler()} />}
         {showPasswordBox && <ShadowBox/>}
-        {showPasswordBox && <PasswordBox isPasswordCorrect={isPasswordCorrect} onHideBox={() => setShowPasswordBox(false)} onPasswordCheck={requestDirectoryHandler} />}
+        {showPasswordBox && <PasswordBox isPasswordCorrect={isPasswordCorrect} onPassChange={setIsPasswordCorrect} onHideBox={() => setShowPasswordBox(false)} onPasswordCheck={requestDirectoryHandler} />}
       </Container>
     </ThemeProvider>
   );

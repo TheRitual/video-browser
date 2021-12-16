@@ -32,8 +32,8 @@ export const PassBox = styled.section`
 
 export const InputBox = styled.div`
 ${({ theme }) => css`
-    width: 30%;
-    height: 60%;
+    width: 30vw;
+    height: 70vh;
     border: 3px solid ${theme.dark};
     border-radius: 30px;
     background-color: ${colorAlpha(theme.dark, 0.7)};
@@ -49,23 +49,24 @@ ${({ theme }) => css`
         background-color: ${theme.light};
         border: 3px solid ${theme.secondary};
         padding: 15px;
-        font-size: 23px;
+        font-size: 5vh;
         border-radius: 10px;
-        margin: 10px;
+        margin: 3vh;
         color: ${theme.dark};
         text-align: center;
-        line-height: 30px;
+        line-height: 7vh;
+        width: 27vw;
 `}}}
 `
 
 export const EnterButton = styled.button`
 ${({ theme }) => css`
         color: ${theme.dark};
-        margin: 20px;
+        margin: 3vh;
         border: 0;
         background-color: ${theme.secondary};
         font-size: 30px;
-        padding: 10px;
+        padding: 3vh;
         transition: 0.2s;
         text-shadow: 0 0 2px ${colorAlpha(theme.dark, 0.7)};
         cursor: pointer;
@@ -79,5 +80,13 @@ ${({ theme }) => css`
             font-size: 3vh;
             padding: 2vh;
         }
+`}}}
+`
+
+export const ErrorInformation = styled.span`
+    ${({ theme }) => css`
+        color: ${theme.error};
+        text-shadow: 0 0 2px ${colorAlpha(theme.secondary, 0.7)};
+        font-size: 6vh;
 `}}}
 `

@@ -79,11 +79,17 @@ export const ButtonContainer = styled.section`
 `;
 
 export const DirIcon = styled(FolderIcon)`
-    width: 30%;
     margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     &:hover {
             transform: scale(1.1);
             filter: brightness(1.2);
     }
+`
+
+export const IconContainer = styled.div`
+    width: 15vh;
+    height: 15vh;
 `

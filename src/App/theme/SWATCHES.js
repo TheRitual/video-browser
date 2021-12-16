@@ -3,7 +3,8 @@ const SWATCHES = {
     denim: '#1248E0',
     ecruWhite: '#F6F5E9',
     gold: '#FFD600',
-    flushOrange: '#FF7800'
+    flushOrange: '#ff7800',
+    scarlet: '#ff3300',
 }
 
 export default SWATCHES;
