@@ -56,7 +56,7 @@ const App = () => {
         <Player fileName={loadedFile} />
         <List moviesList={moviesList} onLoadFile={setLoadedFile} onChangeDir={() => changeDirHandler()} />
         {(showPasswordBox || isFetching) && <ShadowBox />}
-        {showPasswordBox && <PasswordBox hideErrorMessage={hideErrorMessage} setHideErrorMessage={setHideErrorMessage} onHideBox={() => setHideErrorMessage(false)} onPasswordCheck={requestDirectoryHandler} />}
+        {showPasswordBox && <PasswordBox hideErrorMessage={hideErrorMessage} setHideErrorMessage={setHideErrorMessage} onHideBox={() => setShowPasswordBox(false)} onPasswordCheck={requestDirectoryHandler} />}
       </Container>
     </ThemeProvider>
   );
