@@ -10,9 +10,7 @@ import theme from './theme';
 
 const App = () => {
   const [loadedFile, setLoadedFile] = useState(undefined);
-  const [showList, setShowList] = useState(false);
   const [showPasswordBox, setShowPasswordBox] = useState(true);
-  const [enteredPassword, setEnteredPassword] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [moviesList, setMoviesList] = useState([]);
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
@@ -22,7 +20,6 @@ const App = () => {
   }
 
   const requestDirectoryHandler = (pwd) => {
-    setEnteredPassword(pwd);
     setIsFetching(true);
     fetch('./file_list.php',
       {
@@ -41,7 +38,6 @@ const App = () => {
       .then(data => {
         if (data.response === 'ok') {
           setMoviesList(data.filesList);
-          setShowList(true);
           setShowPasswordBox(false);
           setIsPasswordCorrect(true);
         } else {
@@ -58,8 +54,8 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Container>
         <Player fileName={loadedFile} />
-        {showList && <List moviesList={moviesList} onLoadFile={setLoadedFile} onChangeDir={() => changeDirHandler()} />}
-        {showPasswordBox && <ShadowBox/>}
+        <List moviesList={moviesList} onLoadFile={setLoadedFile} onChangeDir={() => changeDirHandler()} />
+        {(showPasswordBox || isFetching) && <ShadowBox />}
         {showPasswordBox && <PasswordBox isPasswordCorrect={isPasswordCorrect} onPassChange={setIsPasswordCorrect} onHideBox={() => setShowPasswordBox(false)} onPasswordCheck={requestDirectoryHandler} />}
       </Container>
     </ThemeProvider>

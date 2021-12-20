@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { EnterButton, ErrorInformation, InputBox, InputField, PassBox } from "./styled";
+import { EnterButton, InputBox, InputField, PassBox } from "./styled";
 
-const PasswordBox = ({ onPasswordCheck, onHideBox, isPasswordCorrect, onPassChange }) => {
+const PasswordBox = ({ onPasswordCheck, onHideBox, onPassChange }) => {
     const [inputValue, setInputValue] = useState("");
 
     const onChangeInputValueHandler = ({ target }) => {
@@ -9,17 +9,23 @@ const PasswordBox = ({ onPasswordCheck, onHideBox, isPasswordCorrect, onPassChan
         onPassChange(true);
     }
 
+    const passwordCheckHandler = (event) => {
+        event.preventDefault();
+        onPasswordCheck(inputValue)
+    }
+
     return (
         <PassBox>
             <InputBox>
-                <InputField placeholder="Open Sesame" value={inputValue} onChange={onChangeInputValueHandler} />
-                <div>
-                    <EnterButton onClick={() => onPasswordCheck(inputValue)}> Enter </EnterButton>
-                    <EnterButton onClick={() => onHideBox()}> Close </EnterButton>
-                </div>
-                {!isPasswordCorrect && <ErrorInformation>Password is Incorrect</ErrorInformation>}
+                <form onSubmit={passwordCheckHandler}>
+                    <InputField placeholder="Open Sesame" value={inputValue} onChange={onChangeInputValueHandler} />
+                    <div>
+                        <EnterButton type='submit' onClick={passwordCheckHandler}> Enter </EnterButton>
+                        <EnterButton onClick={() => onHideBox()}> Close </EnterButton>
+                    </div>
+                </form>
             </InputBox>
-        </PassBox>
+        </PassBox >
     );
 }
 

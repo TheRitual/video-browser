@@ -27,7 +27,12 @@ export const PassBox = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @media(orientation: portrait) {
+            left: 1%;
+            right: 1%;
+            top: 1%;
+            bottom: 1%;
+    }
 `;
 
 export const InputBox = styled.div`
@@ -41,6 +46,11 @@ ${({ theme }) => css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    @media(orientation: portrait) {
+            width: 100%;
+            height: 100%;
+    }
 `}}}    
 `;
 
@@ -56,6 +66,13 @@ ${({ theme }) => css`
         text-align: center;
         line-height: 7vh;
         width: 27vw;
+        @media(orientation: portrait) {
+            width: 90%;
+            font-size: 7vw;
+            line-height: 9vw;
+            padding: 1vw;
+            margin: 3vw;
+    }
 `}}}
 `
 
@@ -77,8 +94,9 @@ ${({ theme }) => css`
             box-shadow: 0 0 10px ${colorAlpha(theme.secondary, 0.7)};
         }
         @media(orientation: portrait) {
-            font-size: 3vh;
-            padding: 2vh;
+            font-size: 7vw;
+            padding: 3vw;
+            margin: 3vw;
         }
 `}}}
 `
@@ -88,5 +106,10 @@ export const ErrorInformation = styled.span`
         color: ${theme.error};
         text-shadow: 0 0 2px ${colorAlpha(theme.secondary, 0.7)};
         font-size: 6vh;
+        @media(orientation: portrait) {
+            font-size: 7vw;
+            padding: 3vw;
+            margin: 3vw;
+        }
 `}}}
 `
