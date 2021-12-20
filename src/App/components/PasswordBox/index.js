@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { EnterButton, InputBox, InputField, PassBox } from "./styled";
+import { ButtonContainer, EnterButton, InputBox, InputField, PassBox } from "./styled";
 
 const PasswordBox = ({ onPasswordCheck, onHideBox, onPassChange }) => {
     const [inputValue, setInputValue] = useState("");
@@ -12,19 +12,20 @@ const PasswordBox = ({ onPasswordCheck, onHideBox, onPassChange }) => {
     const passwordCheckHandler = (event) => {
         event.preventDefault();
         onPasswordCheck(inputValue)
+        console.log('Checking Password');
     }
 
     return (
         <PassBox>
-            <InputBox>
-                <form onSubmit={passwordCheckHandler}>
+            <form onSubmit={passwordCheckHandler}>
+                <InputBox>
                     <InputField placeholder="Open Sesame" value={inputValue} onChange={onChangeInputValueHandler} />
-                    <div>
+                    <ButtonContainer>
                         <EnterButton type='submit' onClick={passwordCheckHandler}> Enter </EnterButton>
                         <EnterButton onClick={() => onHideBox()}> Close </EnterButton>
-                    </div>
-                </form>
-            </InputBox>
+                    </ButtonContainer>
+                </InputBox>
+            </form>
         </PassBox >
     );
 }
