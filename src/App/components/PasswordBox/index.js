@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { ButtonContainer, EnterButton, InputBox, InputField, PassBox } from "./styled";
+import { ButtonContainer, EnterButton, ErrorInformation, InputBox, InputField, PassBox } from "./styled";
 
-const PasswordBox = ({ onPasswordCheck, onHideBox, onPassChange }) => {
+const PasswordBox = ({ onPasswordCheck, onHideBox, setHideErrorMessage, hideErrorMessage }) => {
     const [inputValue, setInputValue] = useState("");
 
     const onChangeInputValueHandler = ({ target }) => {
         setInputValue(target.value);
-        onPassChange(true);
+        setHideErrorMessage(true);
     }
 
     const passwordCheckHandler = (event) => {
         event.preventDefault();
-        onPasswordCheck(inputValue)
+        onPasswordCheck(inputValue);
+        setHideErrorMessage(false);
         console.log('Checking Password');
     }
 
@@ -24,6 +25,7 @@ const PasswordBox = ({ onPasswordCheck, onHideBox, onPassChange }) => {
                         <EnterButton type='submit' onClick={passwordCheckHandler}> Enter </EnterButton>
                         <EnterButton onClick={() => onHideBox()}> Close </EnterButton>
                     </ButtonContainer>
+                    {!hideErrorMessage && <ErrorInformation>Password Incorrect</ErrorInformation>}
                 </InputBox>
             </form>
         </PassBox >

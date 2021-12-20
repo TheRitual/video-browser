@@ -13,7 +13,7 @@ const App = () => {
   const [showPasswordBox, setShowPasswordBox] = useState(true);
   const [isFetching, setIsFetching] = useState(false);
   const [moviesList, setMoviesList] = useState([]);
-  const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
+  const [hideErrorMessage, setHideErrorMessage] = useState(true);
 
   const changeDirHandler = () => {
     setShowPasswordBox(true);
@@ -39,9 +39,9 @@ const App = () => {
         if (data.response === 'ok') {
           setMoviesList(data.filesList);
           setShowPasswordBox(false);
-          setIsPasswordCorrect(true);
+          setHideErrorMessage(true);
         } else {
-          setIsPasswordCorrect(false);
+          setHideErrorMessage(false);
         }
         setIsFetching(false);
       }).catch(error => {
@@ -56,7 +56,7 @@ const App = () => {
         <Player fileName={loadedFile} />
         <List moviesList={moviesList} onLoadFile={setLoadedFile} onChangeDir={() => changeDirHandler()} />
         {(showPasswordBox || isFetching) && <ShadowBox />}
-        {showPasswordBox && <PasswordBox isPasswordCorrect={isPasswordCorrect} onPassChange={setIsPasswordCorrect} onHideBox={() => setShowPasswordBox(false)} onPasswordCheck={requestDirectoryHandler} />}
+        {showPasswordBox && <PasswordBox hideErrorMessage={hideErrorMessage} setHideErrorMessage={setHideErrorMessage} onHideBox={() => setHideErrorMessage(false)} onPasswordCheck={requestDirectoryHandler} />}
       </Container>
     </ThemeProvider>
   );
