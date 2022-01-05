@@ -9,7 +9,7 @@ $input = json_decode($inputJSON, TRUE);
 $pass = isset($input['pwd']) ? $input['pwd'] : "";
 $obtained = getDir($pass);
 
-$mp4s = [];
+$mediaFiles = [];
 if ($obtained->isOk) {
     $dir = './' . $obtained->dirName;
     $files = is_dir($dir) ? scandir($dir) : [];
@@ -17,12 +17,17 @@ if ($obtained->isOk) {
     foreach ($files as $file) {
         $fileNameArray = explode(".", $file);
         $ext = end($fileNameArray);
-        if (strtolower($ext) == "mp4") {
-            array_push($mp4s, $file);
+        switch (strtolower($ext)) {
+            case "mp4":
+            case "mpg":
+                array_push($mediaFiles, $file);
+                break;
+            default:
+                break;
         }
     }
 }
 
-$output = new OutputData($mp4s, $obtained->isOk ? "ok" : "not");
+$output = new OutputData($dir, $mediaFiles, $obtained->isOk ? "ok" : "not");
 
 $output->generateJSON();

@@ -2,8 +2,10 @@
 class OutputData {
     public $filesList;
     public $response;
+    public $dirName;
 
-    function __construct($array, $response) {
+    function __construct($dirName, $array, $response) {
+        $this -> dirName = $dirName;
         $this -> filesList = $array;
         $this -> response = $response;
     }
